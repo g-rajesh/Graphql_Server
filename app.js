@@ -12,6 +12,7 @@ const resolvers = require("./graphql/resolvers");
 
 (async function () {
      const app = express();
+     const PORT = process.env.PORT || 5000;
 
      const httpServer = createServer(app);
 
@@ -75,9 +76,9 @@ const resolvers = require("./graphql/resolvers");
           { server: httpServer, path: server.graphqlPath }
      );
 
-     httpServer.listen(process.env.PORT, () => {
+     httpServer.listen(PORT, () => {
           console.log(
-               `Server is now running on http://localhost:${process.env.PORT}/graphql`
+               `Server is now running on http://localhost:${PORT}/graphql`
           );
           sequelize
                .authenticate()
